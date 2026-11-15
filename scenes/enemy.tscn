@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://gbgmc8mxfeg5"]
+
+[ext_resource type="Script" uid="uid://m254stv8v88e" path="res://scripts/enby.gd" id="1_7p1mj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tq6n8"]
+size = Vector2(16, 16)
+
+[node name="enemy" type="CharacterBody2D" unique_id=1252203922]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_7p1mj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=534788769]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1515686605]
+shape = SubResource("RectangleShape2D_tq6n8")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2084803694]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=124185580]
+shape = SubResource("RectangleShape2D_tq6n8")
+
+[node name="death zone" type="Area2D" parent="." unique_id=462033905]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death zone" unique_id=1453973954]
+shape = SubResource("RectangleShape2D_tq6n8")
+
+[connection signal="body_entered" from="death zone" to="." method="_on_death_zone_body_entered"]

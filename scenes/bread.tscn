@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://efy1p4noawdw"]
+
+[ext_resource type="Script" uid="uid://c1fnopsekv1nk" path="res://scripts/bread.gd" id="1_16yqp"]
+[ext_resource type="Texture2D" uid="uid://bjp6jefkotuyn" path="res://assets/tilemap.png" id="1_svkq2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svkq2"]
+atlas = ExtResource("1_svkq2")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihbfu"]
+atlas = ExtResource("1_svkq2")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tq6n8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svkq2")
+}],
+"loop": 1,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihbfu")
+}],
+"loop": 1,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tq6n8"]
+size = Vector2(10, 32)
+
+[node name="bread" type="StaticBody2D" unique_id=1734623027]
+script = ExtResource("1_16yqp")
+
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1995236286]
+sprite_frames = SubResource("SpriteFrames_tq6n8")
+animation = &"closed"
+autoplay = "closed"
+
+[node name="bob" type="CollisionShape2D" parent="." unique_id=1249629797]
+position = Vector2(11, 0)
+shape = SubResource("RectangleShape2D_tq6n8")

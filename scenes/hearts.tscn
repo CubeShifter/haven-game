@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cvn51qfyjq7yd"]
+
+[ext_resource type="Script" uid="uid://dq65l2b3sgrt7" path="res://scripts/hearts.gd" id="1_14ev0"]
+[ext_resource type="Texture2D" uid="uid://b8pjo7h7apx52" path="res://assets/sprite_0 2.png" id="1_ruow3"]
+
+[node name="hearts" type="Node2D" unique_id=2069981371]
+position = Vector2(20, 0)
+script = ExtResource("1_14ev0")
+
+[node name="0" type="Sprite2D" parent="." unique_id=883272808]
+position = Vector2(-40, 0)
+texture = ExtResource("1_ruow3")
+
+[node name="2" type="Sprite2D" parent="." unique_id=1648051871]
+texture = ExtResource("1_ruow3")
+
+[node name="1" type="Sprite2D" parent="." unique_id=50010287]
+position = Vector2(-20, 0)
+texture = ExtResource("1_ruow3")
